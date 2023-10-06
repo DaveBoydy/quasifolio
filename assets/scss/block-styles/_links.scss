@@ -1,0 +1,144 @@
+@use "../generics/breakpoints" as *;
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# - Generic
+# - Navigation
+# - Post Terms
+# - Pagination
+--------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------
+# - Generic
+--------------------------------------------------------------------------------------------*/
+
+
+.is-style-no-decoration {
+    a {
+        text-decoration: none;
+    }
+
+}
+
+
+/*------------------------------------------------------------------------------------------
+# - Navigation
+--------------------------------------------------------------------------------------------*/
+
+@include wp-mobile-only {
+
+    .is-style-bg-hover {
+        padding: 8px 0px 8px 0px;
+
+        a {
+            border-bottom: medium solid transparent;
+        }
+
+        a:hover {
+            border-bottom: medium solid;
+        }
+    }
+}
+
+@include wp-mobile-excluded {
+
+    .is-style-bg-hover {
+
+        .wp-block-navigation__responsive-container-content {
+
+            .wp-block-page-list {
+                gap: 2px;
+            }
+        }
+
+        .wp-block-navigation__container {
+            gap: 0px;
+        }
+
+        .wp-block-navigation-item__content {
+            padding: 8px;
+        }
+
+        .wp-block-navigation-item__content:hover {
+
+            background-color: var(--wp--preset--color--contrast);
+        }
+
+    }
+
+}
+
+.is-style-hover-underline {
+
+    a {
+        border-bottom: 2px solid transparent;
+    }
+
+    a:hover {
+        border-bottom: 2px solid;
+    }
+}
+
+
+/*------------------------------------------------------------------------------------------
+# - Post Terms
+--------------------------------------------------------------------------------------------*/
+.is-style-boxed-post-term {
+    a {
+        margin: 0rem 0.25rem;
+        padding: 0.19em;
+        background-color: var(--wp--preset--color--contrast);
+        color: var(--wp--preset--color--white);
+        text-decoration: none;
+        border-radius: 2px;
+    }
+
+    a:hover {
+        background-color: var(--wp--preset--color--vivid-red);
+    }
+
+    .wp-block-post-terms__separator {
+        display: none;
+    }
+}
+
+/*------------------------------------------------------------------------------------------
+# - Pagination
+--------------------------------------------------------------------------------------------*/
+
+.is-style-boxed-pagination {
+
+    gap: 0;
+
+    .page-numbers,
+    .wp-block-query-pagination-next,
+    .wp-block-query-pagination-previous {
+        padding: 0.4em 0.8em;
+        border: 1px solid var(--wp--preset--color--neutral);
+        text-decoration: none;
+        color: var(--wp--preset--color--black);
+    }
+
+    .page-numbers.current {
+        background-color: var(--wp--preset--color--contrast);
+        border-color: var(--wp--preset--color--contrast);
+        color: var(--wp--preset--color--white);
+    }
+
+
+
+    .page-numbers:not(.dots):not(.current):hover,
+    .wp-block-query-pagination-next:hover,
+    .wp-block-query-pagination-previous:hover {
+        background-color: var(--wp--preset--color--vivid-red);
+        border-color: var(--wp--preset--color--vivid-red);
+        color: var(--wp--preset--color--white);
+    }
+
+    .wp-block-query-pagination-numbers {
+        display: flex;
+        gap: 1px;
+    }
+
+}
